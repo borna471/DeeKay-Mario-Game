@@ -1,210 +1,466 @@
-/******/ (function(modules) { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/gimages/background.png":
+/*!************************************!*\
+  !*** ./src/gimages/background.png ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "072d51bcc9c09311d4c2a6708b05bddc.png");
+
+/***/ }),
+
+/***/ "./src/gimages/hills.png":
+/*!*******************************!*\
+  !*** ./src/gimages/hills.png ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "cfffe4c371f5e11d372b398a87c51dd0.png");
+
+/***/ }),
+
+/***/ "./src/gimages/platform.png":
+/*!**********************************!*\
+  !*** ./src/gimages/platform.png ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "ffab39d3487de561be1a081fcfb3806d.png");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
 /******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-/******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/canvas.js");
-/******/ })
+/******/ 	
 /************************************************************************/
-/******/ ({
-
-/***/ "./src/js/canvas.js":
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl + "../";
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
 /*!**************************!*\
   !*** ./src/js/canvas.js ***!
   \**************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./src/js/utils.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_utils__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _gimages_platform_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../gimages/platform.png */ "./src/gimages/platform.png");
+/* harmony import */ var _gimages_hills_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../gimages/hills.png */ "./src/gimages/hills.png");
+/* harmony import */ var _gimages_background_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../gimages/background.png */ "./src/gimages/background.png");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+// document.querySelector('.myImg').src = ".//gimages/platform.png"
+
+
+
+console.log(_gimages_platform_png__WEBPACK_IMPORTED_MODULE_0__["default"]); // console.log(platform)
 
 var canvas = document.querySelector('canvas');
 var c = canvas.getContext('2d');
-canvas.width = innerWidth;
-canvas.height = innerHeight;
-var mouse = {
-  x: innerWidth / 2,
-  y: innerHeight / 2
-};
-var colors = ['#2185C5', '#7ECEFD', '#FFF6E5', '#FF7F66']; // Event Listeners
+var gravity = 0.5; // console.log(c)
+// canvas.width = window.innerWidth // dont need window. since innerWidth is a field of window
 
-addEventListener('mousemove', function (event) {
-  mouse.x = event.clientX;
-  mouse.y = event.clientY;
-});
-addEventListener('resize', function () {
-  canvas.width = innerWidth;
-  canvas.height = innerHeight;
-  init();
-}); // Objects
+canvas.width = 1024;
+canvas.height = 576;
 
-var _Object = /*#__PURE__*/function () {
-  function Object(x, y, radius, color) {
-    _classCallCheck(this, Object);
+var Player = /*#__PURE__*/function () {
+  function Player() {
+    _classCallCheck(this, Player);
 
-    this.x = x;
-    this.y = y;
-    this.radius = radius;
-    this.color = color;
+    this.position = {
+      x: 100,
+      y: 100
+    };
+    this.velocity = {
+      x: 0,
+      y: 0 // start at 0 so gravity effects it if its in the air (check update fn)
+
+    };
+    this.width = 30;
+    this.height = 30;
   }
 
-  _createClass(Object, [{
+  _createClass(Player, [{
     key: "draw",
     value: function draw() {
-      c.beginPath();
-      c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-      c.fillStyle = this.color;
-      c.fill();
-      c.closePath();
+      c.fillStyle = 'red'; // order matters for some reason 
+
+      c.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
   }, {
     key: "update",
     value: function update() {
+      this.position.y += this.velocity.y;
+      this.position.x += this.velocity.x;
       this.draw();
+
+      if (this.position.y + this.height + this.velocity.y <= canvas.height) {
+        this.velocity.y += gravity;
+      } else {// this.velocity.y = 0
+        // remove to make player die when falling 
+      }
     }
   }]);
 
-  return Object;
-}(); // Implementation
+  return Player;
+}();
 
+var Platform = /*#__PURE__*/function () {
+  function Platform(_ref) {
+    var x = _ref.x,
+        y = _ref.y,
+        image = _ref.image;
 
-var objects;
+    _classCallCheck(this, Platform);
+
+    this.position = {
+      x: x,
+      y: y
+    };
+    this.image = image;
+    this.width = image.width;
+    this.height = image.height;
+  }
+
+  _createClass(Platform, [{
+    key: "draw",
+    value: function draw() {
+      // c.fillStyle = 'blue'
+      // c.fillRect(this.position.x, this.position.y, this.width, this.height)
+      c.drawImage(this.image, this.position.x, this.position.y);
+    }
+  }]);
+
+  return Platform;
+}();
+
+var GenericObject = /*#__PURE__*/function () {
+  function GenericObject(_ref2) {
+    var x = _ref2.x,
+        y = _ref2.y,
+        image = _ref2.image;
+
+    _classCallCheck(this, GenericObject);
+
+    this.position = {
+      x: x,
+      y: y
+    };
+    this.image = image;
+    this.width = image.width;
+    this.height = image.height;
+  }
+
+  _createClass(GenericObject, [{
+    key: "draw",
+    value: function draw() {
+      // c.fillStyle = 'blue'
+      // c.fillRect(this.position.x, this.position.y, this.width, this.height)
+      c.drawImage(this.image, this.position.x, this.position.y);
+    }
+  }]);
+
+  return GenericObject;
+}();
+
+function createImage(imageSrc) {
+  var image = new Image();
+  image.src = imageSrc;
+  return image;
+}
+
+var platformImage = createImage(_gimages_platform_png__WEBPACK_IMPORTED_MODULE_0__["default"]); // const image = new Image()
+// image.src = platform
+
+var player = new Player(); // const platform = new Platform()
+
+var platforms = [new Platform({
+  x: -1,
+  y: 460,
+  image: platformImage
+}), new Platform({
+  x: platformImage.width - 3,
+  y: 460,
+  image: platformImage
+}), new Platform({
+  x: platformImage.width * 2 + 100,
+  y: 460,
+  image: platformImage
+})];
+var genericObjects = [new GenericObject({
+  x: 0,
+  y: 0,
+  image: createImage(_gimages_background_png__WEBPACK_IMPORTED_MODULE_2__["default"])
+}), new GenericObject({
+  x: 0,
+  y: 0,
+  image: createImage(_gimages_hills_png__WEBPACK_IMPORTED_MODULE_1__["default"])
+})];
+var keys = {
+  right: {
+    pressed: false
+  },
+  left: {
+    pressed: false
+  }
+};
+player.draw();
+var scrollOffset = 0;
 
 function init() {
-  objects = [];
+  platformImage = createImage(_gimages_platform_png__WEBPACK_IMPORTED_MODULE_0__["default"]); // const image = new Image()
+  // image.src = platform
 
-  for (var i = 0; i < 400; i++) {// objects.push()
-  }
-} // Animation Loop
+  player = new Player(); // const platform = new Platform()
 
+  platforms = [new Platform({
+    x: -1,
+    y: 460,
+    image: platformImage
+  }), new Platform({
+    x: platformImage.width - 3,
+    y: 460,
+    image: platformImage
+  }), new Platform({
+    x: platformImage.width * 2 + 100,
+    y: 460,
+    image: platformImage
+  })];
+  genericObjects = [new GenericObject({
+    x: 0,
+    y: 0,
+    image: createImage(_gimages_background_png__WEBPACK_IMPORTED_MODULE_2__["default"])
+  }), new GenericObject({
+    x: 0,
+    y: 0,
+    image: createImage(_gimages_hills_png__WEBPACK_IMPORTED_MODULE_1__["default"])
+  })];
+  player.draw();
+  scrollOffset = 0;
+}
 
 function animate() {
   requestAnimationFrame(animate);
-  c.clearRect(0, 0, canvas.width, canvas.height);
-  c.fillText('HTML CANVAS BOILERPLATE', mouse.x, mouse.y); // objects.forEach(object => {
-  //  object.update()
-  // })
+  c.fillStyle = "white";
+  c.fillRect(0, 0, canvas.width, canvas.height);
+  genericObjects.forEach(function (genericObject) {
+    genericObject.draw();
+  });
+  platforms.forEach(function (platform) {
+    platform.draw();
+  }); // draws each platform in the array of platforms
+
+  player.update(); // make it last thing to draw so it is in front of everything else
+
+  if (keys.right.pressed && player.position.x < 400) {
+    // second cond needed for side-scrolling
+    player.velocity.x = 5;
+  } else if (keys.left.pressed && player.position.x > 100) {
+    // second cond needed for side-scrolling
+    player.velocity.x = -5;
+  } else {
+    player.velocity.x = 0;
+
+    if (keys.right.pressed) {
+      scrollOffset += 5;
+      platforms.forEach(function (platform) {
+        platform.position.x -= 5;
+      });
+      genericObjects.forEach(function (genericObject) {
+        genericObject.position.x -= 1;
+      }); // platform.position.x -= 5 // moves platform to left at same rate as player moves
+    } else if (keys.left.pressed) {
+      scrollOffset -= 5;
+      platforms.forEach(function (platform) {
+        platform.position.x += 5;
+      }); // platform.position.x += 5 // moves platform to right at same rate as player moves
+
+      genericObjects.forEach(function (genericObject) {
+        genericObject.position.x += 1;
+      });
+    }
+  } // platform collision protection
+
+
+  platforms.forEach(function (platform) {
+    if (player.position.y + player.height <= platform.position.y && player.position.y + player.height + player.velocity.y >= platform.position.y && player.position.x + player.width >= platform.position.x && player.position.x + player.width <= platform.position.x + platform.width) {
+      // second one makes sure you only stop when going down 
+      // (when the next frame of movement would be covering the platform on way down)
+      // third one makes it fall down when off the platform on left
+      // fourth does same for right side 
+      player.velocity.y = 0;
+    }
+  }); // win condition
+
+  if (scrollOffset > 1000) {
+    console.log("YOU WIN!");
+  } // lose condition
+
+
+  if (player.position.y > canvas.height) {
+    console.log("YOU LOSE!");
+    init();
+  }
 }
 
-init();
-animate();
+animate(); // event listeners
 
-/***/ }),
+window.addEventListener('keydown', function (_ref3) {
+  var keyCode = _ref3.keyCode;
 
-/***/ "./src/js/utils.js":
-/*!*************************!*\
-  !*** ./src/js/utils.js ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+  // console.log(keyCode)
+  switch (keyCode) {
+    case 65:
+      console.log('left'); // player.velocity.x -= 2
 
-function randomIntFromRange(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
+      keys.left.pressed = true;
+      break;
 
-function randomColor(colors) {
-  return colors[Math.floor(Math.random() * colors.length)];
-}
+    case 83:
+      console.log('down');
+      break;
 
-function distance(x1, y1, x2, y2) {
-  var xDist = x2 - x1;
-  var yDist = y2 - y1;
-  return Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2));
-}
+    case 68:
+      console.log('right'); // player.velocity.x += 2
 
-module.exports = {
-  randomIntFromRange: randomIntFromRange,
-  randomColor: randomColor,
-  distance: distance
-};
+      keys.right.pressed = true;
+      break;
 
-/***/ })
+    case 87:
+      console.log('up');
+      player.velocity.y -= 20;
+      break;
+  }
+}); // dont need to call window cuz this IS the window
 
-/******/ });
+window.addEventListener('keyup', function (_ref4) {
+  var keyCode = _ref4.keyCode;
+
+  // console.log(keyCode)
+  switch (keyCode) {
+    case 65:
+      console.log('left');
+      player.velocity.x = 0;
+      keys.left.pressed = false;
+      break;
+
+    case 83:
+      console.log('down');
+      break;
+
+    case 68:
+      console.log('right');
+      player.velocity.x = 0;
+      keys.right.pressed = false;
+      break;
+
+    case 87:
+      console.log('up'); // player.velocity.y -= 20
+
+      break;
+  }
+});
+})();
+
+/******/ })()
+;
 //# sourceMappingURL=canvas.bundle.js.map
