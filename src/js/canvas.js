@@ -265,7 +265,7 @@ function animate() {
             player.velocity.y = 0
         } 
 
-    })
+    }) 
 
     // win condition
     if (scrollOffset > 1000) {
