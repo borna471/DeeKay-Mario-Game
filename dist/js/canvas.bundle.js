@@ -42,6 +42,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "ffab39d3487de561be1a081fcfb3806d.png");
 
+/***/ }),
+
+/***/ "./src/gimages/platformSmallTall.png":
+/*!*******************************************!*\
+  !*** ./src/gimages/platformSmallTall.png ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "0587f9be8e442eb74b2fe283bbf1a947.png");
+
 /***/ })
 
 /******/ 	});
@@ -142,6 +156,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _gimages_platform_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../gimages/platform.png */ "./src/gimages/platform.png");
 /* harmony import */ var _gimages_hills_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../gimages/hills.png */ "./src/gimages/hills.png");
 /* harmony import */ var _gimages_background_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../gimages/background.png */ "./src/gimages/background.png");
+/* harmony import */ var _gimages_platformSmallTall_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../gimages/platformSmallTall.png */ "./src/gimages/platformSmallTall.png");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -151,6 +166,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 // document.querySelector('.myImg').src = ".//gimages/platform.png"
 
 
+
+ // import { create } from "browser-sync"
 
 console.log(_gimages_platform_png__WEBPACK_IMPORTED_MODULE_0__["default"]); // console.log(platform)
 
@@ -166,6 +183,7 @@ var Player = /*#__PURE__*/function () {
   function Player() {
     _classCallCheck(this, Player);
 
+    this.speed = 10;
     this.position = {
       x: 100,
       y: 100
@@ -268,33 +286,14 @@ function createImage(imageSrc) {
   return image;
 }
 
-var platformImage = createImage(_gimages_platform_png__WEBPACK_IMPORTED_MODULE_0__["default"]); // const image = new Image()
+var platformImage = createImage(_gimages_platform_png__WEBPACK_IMPORTED_MODULE_0__["default"]);
+var platformSmallTallImage = createImage(_gimages_platformSmallTall_png__WEBPACK_IMPORTED_MODULE_3__["default"]); // const image = new Image()
 // image.src = platform
 
 var player = new Player(); // const platform = new Platform()
 
-var platforms = [new Platform({
-  x: -1,
-  y: 460,
-  image: platformImage
-}), new Platform({
-  x: platformImage.width - 3,
-  y: 460,
-  image: platformImage
-}), new Platform({
-  x: platformImage.width * 2 + 100,
-  y: 460,
-  image: platformImage
-})];
-var genericObjects = [new GenericObject({
-  x: 0,
-  y: 0,
-  image: createImage(_gimages_background_png__WEBPACK_IMPORTED_MODULE_2__["default"])
-}), new GenericObject({
-  x: 0,
-  y: 0,
-  image: createImage(_gimages_hills_png__WEBPACK_IMPORTED_MODULE_1__["default"])
-})];
+var platforms = [];
+var genericObjects = [];
 var keys = {
   right: {
     pressed: false
@@ -307,12 +306,17 @@ player.draw();
 var scrollOffset = 0;
 
 function init() {
-  platformImage = createImage(_gimages_platform_png__WEBPACK_IMPORTED_MODULE_0__["default"]); // const image = new Image()
+  platformImage = createImage(_gimages_platform_png__WEBPACK_IMPORTED_MODULE_0__["default"]);
+  platformSmallTallImage = createImage(_gimages_platformSmallTall_png__WEBPACK_IMPORTED_MODULE_3__["default"]); // const image = new Image()
   // image.src = platform
 
   player = new Player(); // const platform = new Platform()
 
   platforms = [new Platform({
+    x: platformImage.width * 4 + 400 - 2 + platformImage.width / 2,
+    y: 270,
+    image: platformSmallTallImage
+  }), new Platform({
     x: -1,
     y: 460,
     image: platformImage
@@ -322,6 +326,18 @@ function init() {
     image: platformImage
   }), new Platform({
     x: platformImage.width * 2 + 100,
+    y: 460,
+    image: platformImage
+  }), new Platform({
+    x: platformImage.width * 3 + 400,
+    y: 460,
+    image: platformImage
+  }), new Platform({
+    x: platformImage.width * 4 + 400 - 2,
+    y: 460,
+    image: platformImage
+  }), new Platform({
+    x: platformImage.width * 5 + 800,
     y: 460,
     image: platformImage
   })];
@@ -354,28 +370,28 @@ function animate() {
   if (keys.right.pressed && player.position.x < 400) {
     // second cond needed for side-scrolling
     player.velocity.x = 5;
-  } else if (keys.left.pressed && player.position.x > 100) {
-    // second cond needed for side-scrolling
+  } else if (keys.left.pressed && player.position.x > 100 || // second cond needed for side-scrolling
+  keys.left.pressed && scrollOffset === 0 && player.position.x > 0) {
     player.velocity.x = -5;
   } else {
     player.velocity.x = 0;
 
     if (keys.right.pressed) {
-      scrollOffset += 5;
+      scrollOffset += player.speed;
       platforms.forEach(function (platform) {
-        platform.position.x -= 5;
+        platform.position.x -= player.speed;
       });
       genericObjects.forEach(function (genericObject) {
-        genericObject.position.x -= 1;
+        genericObject.position.x -= player.speed * 0.2;
       }); // platform.position.x -= 5 // moves platform to left at same rate as player moves
-    } else if (keys.left.pressed) {
-      scrollOffset -= 5;
+    } else if (keys.left.pressed && scrollOffset > 0) {
+      scrollOffset -= player.speed;
       platforms.forEach(function (platform) {
-        platform.position.x += 5;
+        platform.position.x += player.speed;
       }); // platform.position.x += 5 // moves platform to right at same rate as player moves
 
       genericObjects.forEach(function (genericObject) {
-        genericObject.position.x += 1;
+        genericObject.position.x += player.speed * 0.2;
       });
     }
   } // platform collision protection
@@ -391,7 +407,7 @@ function animate() {
     }
   }); // win condition
 
-  if (scrollOffset > 1000) {
+  if (scrollOffset > platformImage.width * 6 + 300) {
     console.log("YOU WIN!");
   } // lose condition
 
@@ -402,6 +418,7 @@ function animate() {
   }
 }
 
+init();
 animate(); // event listeners
 
 window.addEventListener('keydown', function (_ref3) {
@@ -427,7 +444,7 @@ window.addEventListener('keydown', function (_ref3) {
 
     case 87:
       console.log('up');
-      player.velocity.y -= 20;
+      player.velocity.y -= 15;
       break;
   }
 }); // dont need to call window cuz this IS the window
