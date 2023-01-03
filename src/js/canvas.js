@@ -263,7 +263,7 @@ function animate() {
                 // third one makes it fall down when off the platform on left
                 // fourth does same for right side 
             player.velocity.y = 0
-        }
+        } 
 
     })
 
