@@ -7,7 +7,7 @@ import background from "../gimages/background.png"
 console.log(platform)
 
 // console.log(platform)
-
+ 
 const canvas = document.querySelector('canvas')
 
 const c = canvas.getContext('2d')
