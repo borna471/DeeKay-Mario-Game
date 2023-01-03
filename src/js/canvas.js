@@ -3,6 +3,10 @@ import platform from "../gimages/platform.png"
 import hills from "../gimages/hills.png"
 import background from "../gimages/background.png"
 import platformSmallTall from "../gimages/platformSmallTall.png"
+import spriteRunLeft from "../gimages/spriteRunLeft.png"
+import spriteRunRight from "../gimages/spriteRunRight.png"
+import spriteStandLeft from "../gimages/spriteStandLeft.png"
+import spriteStandRight from "../gimages/spriteStandRight.png"
 // import { create } from "browser-sync"
 
 
@@ -35,20 +39,60 @@ class Player {
             y: 0
             // start at 0 so gravity effects it if its in the air (check update fn)
         }
-        this.width = 30
-        this.height = 30
+        this.width = 66
+        this.height = 150
+
+        this.image = createImage(spriteStandRight)
+        this.frames = 0
+
+        this.sprites = {
+            stand: {
+                right: createImage(spriteStandRight),
+                left: createImage(spriteStandLeft),
+                cropWidth: 177,
+                width: 66
+            },
+            run: {
+                right: createImage(spriteRunRight),
+                left: createImage(spriteRunLeft),
+                cropWidth: 341,
+                width:127.875
+            }
+        }
+
+        this.currentSprite = this.sprites.stand.right
+        this.currentCropWidth = 177
         
     }
  
     draw() {
-        c.fillStyle = 'red'
-        // order matters for some reason 
-        c.fillRect(this.position.x, this.position.y, this.width, this.height);
+        // c.fillStyle = 'red'
+        // // order matters for some reason 
+        // c.fillRect(this.position.x, this.position.y, this.width, this.height);
+        
+        c.drawImage(
+            this.currentSprite, 
+            this.currentCropWidth * this.frames,
+            0, 
+            this.currentCropWidth,
+            400,
+            this.position.x, 
+            this.position.y, 
+            this.width, 
+            this.height)
         
     } 
 
     update() {
         
+        this.frames++
+        if (this.frames > 59 && (this.currentSprite === this.sprites.stand.right ||
+                                 this.currentSprite === this.sprites.stand.left)) {
+            this.frames = 0
+        } else if (this.frames > 29 && (this.currentSprite === this.sprites.run.right ||
+                                        this.currentSprite === this.sprites.run.left)) {
+            this.frames = 0
+        }
         this.position.y += this.velocity.y
         this.position.x += this.velocity.x
         this.draw()
@@ -117,15 +161,11 @@ let platformSmallTallImage = createImage(platformSmallTall)
 
 let player = new Player()
 // const platform = new Platform()
-let platforms = [ 
-  
+let platforms = []
 
-]
+let genericObjects = []
 
-let genericObjects = [
-  
-]
-
+let lastKey
 const keys = {
     right: {
         pressed: false
@@ -276,6 +316,40 @@ function animate() {
 
     }) 
 
+    // sprite switching
+    if (keys.right.pressed && 
+        lastKey == 'right' && 
+        player.currentSprite !== player.sprites.run.right) {
+        player.frames = 0
+        player.currentSprite = player.sprites.run.right
+            player.currentCropWidth = player.sprites.run.cropWidth
+            player.width = player.sprites.run.width
+    } else if (
+        keys.left.pressed && 
+        lastKey == 'left' && 
+        player.currentSprite !== player.sprites.run.left) {
+
+        player.currentSprite = player.sprites.run.left
+            player.currentCropWidth = player.sprites.run.cropWidth
+            player.width = player.sprites.run.width
+    } else if (
+        !keys.left.pressed && 
+        lastKey == 'left' && 
+        player.currentSprite !== player.sprites.stand.left) {
+
+        player.currentSprite = player.sprites.stand.left
+            player.currentCropWidth = player.sprites.stand.cropWidth
+            player.width = player.sprites.stand.width
+    } else if (
+        !keys.right.pressed && 
+        lastKey == 'right' && 
+        player.currentSprite !== player.sprites.stand.right) {
+
+        player.currentSprite = player.sprites.stand.right
+            player.currentCropWidth = player.sprites.stand.cropWidth
+            player.width = player.sprites.stand.width
+    }
+
     // win condition
     if (scrollOffset > platformImage.width*6 + 300) {
         console.log("YOU WIN!")
@@ -301,6 +375,7 @@ window.addEventListener('keydown', ({ keyCode}) => {
             console.log('left')
             // player.velocity.x -= 2
             keys.left.pressed = true
+            lastKey = 'left'
             break
 
         case 83:
@@ -311,6 +386,7 @@ window.addEventListener('keydown', ({ keyCode}) => {
             console.log('right')
             // player.velocity.x += 2
             keys.right.pressed = true
+            lastKey = 'right'
             break
 
         case 87:
@@ -329,6 +405,9 @@ window.addEventListener('keyup', ({ keyCode}) => {
             console.log('left')
             player.velocity.x = 0
             keys.left.pressed = false
+            // player.currentSprite = player.sprites.stand.left
+            // player.currentCropWidth = player.sprites.stand.cropWidth
+            // player.width = player.sprites.stand.width
             break
 
         case 83:
@@ -339,6 +418,9 @@ window.addEventListener('keyup', ({ keyCode}) => {
             console.log('right')
             player.velocity.x = 0
             keys.right.pressed = false
+            // player.currentSprite = player.sprites.stand.right
+            // player.currentCropWidth = player.sprites.stand.cropWidth
+            // player.width = player.sprites.stand.width
             break
 
         case 87:
