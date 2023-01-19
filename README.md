@@ -6,4 +6,5 @@
 
 #### Sprite from DeekayVerse
 #### Visual background made using HTML Canvas
+#### Collaborators on repo are from original boilerplate that was used for this project
 
